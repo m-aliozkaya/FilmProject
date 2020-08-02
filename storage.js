@@ -1,38 +1,38 @@
-function Storage() {}
-
-Storage.prototype.addFilmToStorage = function (film) {
+class Storage {
+  static addFilmToStorage(film) {
     let films = this.getFilmsFromStorage();
 
     films.push(film);
 
-    localStorage.setItem("films",JSON.stringify(films));
-};
-
-Storage.prototype.getFilmsFromStorage = function () {
-  let films;
-
-  if (localStorage.getItem("films") === null) {
-    films = [];
-  } else {
-    films = JSON.parse(localStorage.getItem("films"));
+    localStorage.setItem("films", JSON.stringify(films));
   }
 
-  return films;
-};
+  static getFilmsFromStorage() {
+    let films;
 
-Storage.prototype.deleteFilmFromStorage = function(title){
+    if (localStorage.getItem("films") === null) {
+      films = [];
+    } else {
+      films = JSON.parse(localStorage.getItem("films"));
+    }
+
+    return films;
+  }
+
+  static deleteFilmFromStorage(title) {
     let films = this.getFilmsFromStorage();
 
     // Splice
-    films.forEach(function(film, index){
-        if(film.name === title){
-            films.splice(index, 1);
-        }
+    films.forEach(function (film, index) {
+      if (film.name === title) {
+        films.splice(index, 1);
+      }
     });
 
     localStorage.setItem("films", JSON.stringify(films));
-}
+  }
 
-Storage.prototype.clearAllFilmsFromStorage = function(){
+  static clearAllFilmsFromStorage() {
     localStorage.removeItem("films");
+  }
 }
