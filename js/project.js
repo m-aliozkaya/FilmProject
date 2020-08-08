@@ -1,8 +1,10 @@
 const form = document.getElementById("film-form");
 const nameFilm = document.querySelector("#title");
 const directorFilm = document.querySelector("#director");
+const categoryFilm = document.querySelector("#category");
+const pointFilm = document.querySelector("#point");
 const urlFilm = document.querySelector("#url");
-const cardBody = document.querySelectorAll(".card-body")[1];
+const filmDiv = document.querySelector("#films");
 const clear = document.getElementById("clear-films");
 
 // Tüm eventleri yükleme
@@ -14,7 +16,7 @@ function eventListeners() {
     let films = Storage.getFilmsFromStorage();
     UI.loadAllFilms(films);
   });
-  cardBody.addEventListener("click", deleteFilm);
+  filmDiv.addEventListener("click", deleteFilm);
   clear.addEventListener("click", clearAllFilms);
 }
 
@@ -22,31 +24,39 @@ function addFilm(e) {
   const name = nameFilm.value;
   const director = directorFilm.value;
   const url = urlFilm.value;
+  const point = pointFilm.value;
+  const category = categoryFilm.value;
 
-  if (name === "" || director === "" || url === "") {
+  if (
+    name === "" ||
+    director === "" ||
+    url === "" ||
+    point === "" ||
+    categoryFilm === ""
+  ) {
     // Hata
     UI.displayMessages("Tüm alanları doldurun", "danger");
   } else {
     // Yeni film
-    const film = new Film(name, director, url);
+    const film = new Film(name, director, category, point, url);
     UI.addFilmToUI(film); // Arayüze film ekleme
     Storage.addFilmToStorage(film); // Storage' e film ekleme
     UI.displayMessages("Film basariyla eklendi", "success");
   }
 
-  UI.clearInputs(nameFilm, directorFilm, urlFilm);
+  UI.clearInputs(nameFilm, directorFilm, urlFilm, pointFilm, categoryFilm);
 
   e.preventDefault();
 }
 
 function deleteFilm(e) {
+
   if (e.target.id === "delete-film") {
     UI.deleteFilmFromUI(e.target);
     Storage.deleteFilmFromStorage(
-      e.target.parentElement.previousElementSibling.previousElementSibling
-        .textContent
-    );
-    UI.displayMessages("Film başarıyla silindi", "warning");
+      e.target.parentElement.parentElement.previousElementSibling.firstElementChild.firstElementChild.firstElementChild.firstElementChild.childNodes[3].textContent
+     ); 
+     UI.displayMessages("Film başarıyla silindi", "warning");
   }
 }
 

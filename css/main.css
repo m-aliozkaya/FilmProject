@@ -1,0 +1,56 @@
+.card {
+  border-width: 0.5em;
+  padding: 2em;
+}
+
+#film-card {
+  margin: 0;
+  padding: 0;
+  padding-bottom: 5px;
+  border: none;
+}
+
+.table {
+  margin-bottom: 0;
+  /* margin-left: 1em; */
+}
+
+img {
+  height: 15em;
+}
+
+#icons {
+  /* margin-left: 2em; */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: flex-end;
+}
+
+.fa-trash-alt {
+  width: 36px;
+  color: #cf1b1b;
+}
+
+.fa-trash-alt:hover {
+  color: #900d0d;
+}
+
+@media screen and (max-width: 768px) {
+  #icons {
+    flex: 1;
+    flex-direction: row;
+    align-content: space-between;
+    margin-left: 0;
+  }
+  #add-button {
+    display: flex;
+    justify-content: center;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .container {
+    min-width: 768px;
+  }
+}

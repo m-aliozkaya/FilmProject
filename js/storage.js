@@ -20,10 +20,12 @@ class Storage {
   }
 
   static deleteFilmFromStorage(title) {
+
     let films = this.getFilmsFromStorage();
 
     // Splice
     films.forEach(function (film, index) {
+ 
       if (film.name === title) {
         films.splice(index, 1);
       }

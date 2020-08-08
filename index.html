@@ -14,10 +14,21 @@
       integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk"
       crossorigin="anonymous"
     />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+      integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="css/main.css" />
   </head>
   <body>
-    <div class="container mt-4">
-      <div class="card row">
+    <div class="container">
+      <div class="card">
         <div class="card-header">Film Projesi</div>
         <div class="card-body">
           <form id="film-form" name="form">
@@ -35,62 +46,51 @@
                 <input
                   class="form-control"
                   type="text"
-                  name="director"
-                  id="director"
-                  placeholder="Yönetmen"
-                />
-              </div>
-              <div class="form-group col-md">
-                <input
-                  class="form-control"
-                  type="text"
                   name="url"
                   id="url"
                   placeholder="Film Afiş Linki"
                 />
               </div>
             </div>
-            <button type="submit" class="btn btn-danger">Film Ekleyin</button>
+            <div class="form-row">
+              <div class="form-group col-md">
+                <input
+                  class="form-control"
+                  type="text"
+                  name="category"
+                  id="category"
+                  placeholder="Türü"
+                />
+              </div>
+              <div class="form-group col-md">
+                <input
+                  class="form-control"
+                  type="text"
+                  name="point"
+                  id="point"
+                  placeholder="Puan"
+                />
+              </div>
+              <div class="form-group col-md">
+                <input
+                  class="form-control"
+                  type="text"
+                  name="director"
+                  id="director"
+                  placeholder="Yönetmen"
+                />
+              </div>
+            </div>
+            <div id="add-button" class="form-row">
+              <button type="submit" class="btn btn-danger">Film Ekleyin</button>
+            </div>
           </form>
           <hr />
-          <div class="card-body">
-            <table class="table table-dark">
-              <thead>
-                <tr>
-                  <th scope="col">Film Afişi</th>
-                  <th scope="col">Film Adı</th>
-                  <th scope="col">Yönetmen</th>
-                </tr>
-              </thead>
-              <tbody id="films">
-                <!-- <tr>
-                  <td><img src="" class="img-fluid img-thumbnail" /></td>
-                  <td></td>
-                  <td></td>
-                  <td>
-                    <a href="#" id="delete-film" class="btn btn-danger"
-                      >Filmi Sil</a
-                    >
-                  </td>
-                </tr>
-                <tr>
-                  <td><img src="" class="img-fluid img-thumbnail" /></td>
-                  <td></td>
-                  <td></td>
-                  <td>
-                    <a href="#" id="delete-film" class="btn btn-danger"
-                      >Filmi Sil</a
-                    >
-                  </td>
-                </tr> -->
-              </tbody>
-            </table>
-            <hr />
-            <a href="#" id="clear-films" class="btn btn-dark"
-              >Tüm Filmleri Temizleyin</a
-            >
-          </div>
+          <div id="films"></div>
         </div>
+        <a href="#" id="clear-films" class="btn btn-secondary btn-lg"
+          >Tüm Filmleri Temizleyin</a
+        >
       </div>
     </div>
   </body>
@@ -109,8 +109,8 @@
     integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
     crossorigin="anonymous"
   ></script>
-  <script src="ui.js"></script>
-  <script src="storage.js"></script>
-  <script src="film.js"></script>
-  <script src="project.js"></script>
+  <script src="js/ui.js"></script>
+  <script src="js/storage.js"></script>
+  <script src="js/film.js"></script>
+  <script src="js/project.js"></script>
 </html>
